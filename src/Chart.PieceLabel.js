@@ -158,7 +158,18 @@
             element.inRange(right, top) && element.inRange(right, bottom);
         }
         if (drawable) {
-          this.fillText(text, position, fontColor);
+          /*********************** ***********************/
+          var arrText = text.split('\n');
+          if(arrText.length > 1) {
+            arrText.forEach(function(lineText) {
+              this.fillText(lineText, position, fontColor);
+              position.y += this.fontSize;
+            });
+          } else {
+            this.fillText(text, position, fontColor);
+          }
+          /*********************** ***********************/
+          // this.fillText(text, position, fontColor);
         }
       }
       ctx.restore();
