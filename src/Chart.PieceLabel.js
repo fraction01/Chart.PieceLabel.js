@@ -164,7 +164,7 @@
             arrText.forEach(function(lineText) {
               this.fillText(lineText, position, fontColor);
               position.y += this.fontSize;
-            });
+            }, this);
           } else {
             this.fillText(text, position, fontColor);
           }
